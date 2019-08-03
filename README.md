@@ -46,9 +46,10 @@ own function to deal with. An example for hat is below.
 
 ## What are Interactives ?
 
-Interactives are things on screen that the player can interact with. I only care
-for their type, and a position that is similar to the thing center that mouse
-can click.
+Interactives are things on screen that the player can interact with.
+These are Objects, Characters, Hotspots, and GUI Controls like buttons and others.
+This module only cares for their type, and a position that is similar to the
+thing center that mouse can click.
 
 Note that some gotchas apply, for example, if you have three different Hotspots
 areas that map to the same Hotspot, instead of finding out they are different,

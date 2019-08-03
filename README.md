@@ -1,11 +1,101 @@
 # ArrowSelect
-Select things using arrows, module for in point and click games made with Adventure Game Studio
+Select things using arrows, module for in point and click games made with
+Adventure Game Studio
+
+This module doesn't deal with printing things on screen, but if you want to do
+this, you may find it provides some helpful functions with the Interactives
+abstraction.
+
+## Basic usage
+
+For basic usage with Keyboard, in your global script, add:
+
+```AGS Script
+    ArrowSelect.enableKeyboadArrows();
+```
+
+## Usage with joystick
+
+If you are using a joystick or gamepad plugin, you will need to implement your
+own function to deal with. An example for hat is below.
+
+```AGS Script
+    //pressed a hat
+    void pressedPov(int pov){
+      if(pov == ePOVCenter){
+      } else if(pov == ePOVDown){
+        ArrowSelect.moveCursorDirection(eDirectionDown);
+      } else if(pov == ePOVLeft){
+        ArrowSelect.moveCursorDirection(eDirectionLeft);
+      } else if(pov == ePOVRight){
+        ArrowSelect.moveCursorDirection(eDirectionRight);
+      } else if(pov == ePOVUp){
+        ArrowSelect.moveCursorDirection(eDirectionUp);
+      } else if(pov == ePOVDownLeft){
+        ArrowSelect.moveCursorDirection(eDirectionDownLeft);
+      } else if(pov == ePOVDownRight){
+        ArrowSelect.moveCursorDirection(eDirectionDownRight);
+      } else if(pov == ePOVUpLeft){
+        ArrowSelect.moveCursorDirection(eDirectionUpLeft);
+      } else if(pov == ePOVUpRight){
+        ArrowSelect.moveCursorDirection(eDirectionUpRight);
+      }
+      return;
+    }
+```
+
+## What are Interactives ?
+
+Interactives are things on screen that the player can interact with. I only care
+for their type, and a position that is similar to the thing center that mouse
+can click.
+
+Note that some gotchas apply, for example, if you have three different Hotspots
+areas that map to the same Hotspot, instead of finding out they are different,
+it will erroneously find a point in the center of them. So if you have, for
+example, two TVs in your background, that have the same interaction, create
+two different hostpots for them and just map the same interaction function to
+both, otherwise this module will fail.
+
+```AGS Script
+enum InteractiveType{
+  eInteractiveTypeNothing = eLocationNothing,
+  eInteractiveTypeObject = eLocationObject,
+  eInteractiveTypeCharacter = eLocationCharacter,
+  eInteractiveTypeHotspot = eLocationHotspot,
+  eInteractiveTypeGUIControl,
+  eInteractiveTypeGUI,
+};
+
+managed struct Interactive{
+  int x;
+  int y;
+  int ID;
+  InteractiveType type;
+};
+```
 
 ## ArrowSelect API
 
+### `bool ArrowSelect.moveCursorDirection(CharacterDirection dir)`
+
+Moves cursor to the interactive available at a direction. Returns true if the
+cursor is successfully moved.
+
+### `bool ArrowSelect.areKeyboardArrowsEnable()`
+
+Returns true if regular keyboard arrows are enabled for cursor movements.
+import static ;
+
+### `bool ArrowSelect.enableKeyboadArrows(bool isKeyboardArrowsEnabled = 1)`
+
+Enables or disables (by passing `false`) regular keyboard arrows handled by this
+module.
+
 ### `Triangle* ArrowSelect.triangleFromOriginAngleAndDirection(Point* origin, int direction, int spreadAngle=90)`
 
-Returns a Triangle instance with one point at the origin points and the two other points separated by spreadAngle, and at the direction angle
+Returns a Triangle instance with one point at the origin points and the two
+other points separated by spreadAngle, and at the direction angle
 
 ### `int ArrowSelect.distanceInteractivePoint(Interactive* s, Point* a)`
 
@@ -27,26 +117,14 @@ Returns true if an interactive is inside a triangle defined by three points.
 
 Returns a list of which triangles are inside a triangle defined by three points.
 
-### `bool ArrowSelect.moveCursorDirection(CharacterDirection dir)`
-
-Moves cursor to the interactive available at a direction. Returns true if the cursor is successfully moved.
-
-### `bool ArrowSelect.areKeyboardArrowsEnable()`
-
-Returns true if regular keyboard arrows are enabled for cursor movements.
-import static ;
-
-### `bool ArrowSelect.enableKeyboadArrows(bool isKeyboardArrowsEnabled = 1)`
-
-Enables or disables (by passing `false`) regular keyboard arrows handled by this module.
-
 ## Implementation details
 
 This is just the detail on how things works on this module
 
 ### Problem
 
-By using keyboard arrow keys or joystick directional hat, select between clickable things on screen.
+By using keyboard arrow keys or joystick directional hat, select between
+clickable things on screen.
 
 ### Solution
 
@@ -54,13 +132,17 @@ When the player press an arrow button do as follow:
 
 1 .get the x,y position of each thing on screen,
 
-2 .select only things on arrow button direction (example:at right of current cursor position, when player press right arrow button),
+2 .select only things on arrow button direction (example:at right of current
+  cursor position, when player press right arrow button),
 
-3 .calculate distance from cursor to things there, and get what has the smaller distance
+3 .calculate distance from cursor to things there, and get what has the smaller
+  distance
 
 ### Solution details
 
-For 2, the key is figuring out the right angle and then create a triangle that extends to screen border, the things inside the triangle can be figured with the function below
+For 2, the key is figuring out the right angle and then create a triangle that
+extends to screen border, the things inside the triangle can be figured with the
+function below
 
 https://stackoverflow.com/a/9755252/965638
 ```

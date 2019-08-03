@@ -13,7 +13,7 @@ abstraction.
 For basic usage with Keyboard, in your global script, add:
 
 ```AGS Script
-    ArrowSelect.enableKeyboadArrows();
+ArrowSelect.enableKeyboardArrows();
 ```
 
 ## Usage with joystick
@@ -90,7 +90,7 @@ cursor is successfully moved.
 Returns true if regular keyboard arrows are enabled for cursor movements.
 import static ;
 
-### `bool ArrowSelect.enableKeyboadArrows(bool isKeyboardArrowsEnabled = 1)`
+### `bool ArrowSelect.enableKeyboardArrows(bool isKeyboardArrowsEnabled = 1)`
 
 Enables or disables (by passing `false`) regular keyboard arrows handled by this
 module.

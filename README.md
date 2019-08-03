@@ -1,5 +1,44 @@
 # ArrowSelect
-Select things using arrows, module for in point and click games made with Adventure Game Studio 
+Select things using arrows, module for in point and click games made with Adventure Game Studio
+
+## ArrowSelect API
+
+### `Triangle* ArrowSelect.triangleFromOriginAngleAndDirection(Point* origin, int direction, int spreadAngle=90)`
+
+Returns a Triangle instance with one point at the origin points and the two other points separated by spreadAngle, and at the direction angle
+
+### `int ArrowSelect.distanceInteractivePoint(Interactive* s, Point* a)`
+
+Retuns the distance between an interactive and a point.
+
+### `Interactive* ArrowSelect.closestValidInteractivePoint(Interactive* Interactives[], Point* a)`
+
+Returns the closest interactive to a point.
+
+### `Interactive*[] ArrowSelect.getInteractives()`
+
+Get a list of all interactives on screen.
+
+### `bool ArrowSelect.isInteractiveInsideTriangle(Interactive* p, Point* a, Point* b, Point* c)`
+
+Returns true if an interactive is inside a triangle defined by three points.
+
+### `Interactive*[] ArrowSelect.whichInteractivesInTriangle(Interactive* Interactives[], Point* a, Point* b, Point* c)`
+
+Returns a list of which triangles are inside a triangle defined by three points.
+
+### `bool ArrowSelect.moveCursorDirection(CharacterDirection dir)`
+
+Moves cursor to the interactive available at a direction. Returns true if the cursor is successfully moved.
+
+### `bool ArrowSelect.areKeyboardArrowsEnable()`
+
+Returns true if regular keyboard arrows are enabled for cursor movements.
+import static ;
+
+### `bool ArrowSelect.enableKeyboadArrows(bool isKeyboardArrowsEnabled = 1)`
+
+Enables or disables (by passing `false`) regular keyboard arrows handled by this module.
 
 ## Implementation details
 
@@ -9,15 +48,15 @@ This is just the detail on how things works on this module
 
 By using keyboard arrow keys or joystick directional hat, select between clickable things on screen.
 
-### Solution 
+### Solution
 
 When the player press an arrow button do as follow:
 
 1 .get the x,y position of each thing on screen,
 
-2 .select only things on arrow button direction (example:at right of current cursor position, when player press right arrow button), 
+2 .select only things on arrow button direction (example:at right of current cursor position, when player press right arrow button),
 
-3 .calculate distance from cursor to things there, and get what has the smaller distance 
+3 .calculate distance from cursor to things there, and get what has the smaller distance
 
 ### Solution details
 

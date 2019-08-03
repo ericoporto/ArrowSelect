@@ -1,6 +1,6 @@
 //Arrow Select Module Header// MIT License
 //
-// Copyright (c) 2019 Ã‰rico Vieira Porto
+// Copyright (c) 2019 Érico Vieira Porto
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -40,6 +40,8 @@
 //
 // This is implemented by `bool moveCursorDirection(CharacterDirection dir)`
 //
+// Look into module README for more info
+
 
 #define MAX_HOTSPOTS_PER_ROOM 49
 #define MAX_LABELS 70

@@ -2,7 +2,9 @@
 Select things using arrows, module for in point and click games made with
 Adventure Game Studio
 
-[Get Latest Release under **Assets**](https://github.com/ericoporto/arrowselect/releases/latest)
+[Get Latest Release under **Assets**](https://github.com/ericoporto/arrowselect/releases/latest) | [AGS Forum Topic](https://www.adventuregamestudio.co.uk/forums/index.php?topic=57379.0)
+
+![](arrowselect_demo.gif)
 
 _Note:_ This module doesn't deal with printing things on screen, but if you want to do
 this, you may find it provides some helpful functions with the Interactives

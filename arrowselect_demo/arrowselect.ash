@@ -98,5 +98,5 @@ struct ArrowSelect
   import static bool areKeyboardArrowsEnable();
 
   /// Enables or disables (by passing `false`) regular keyboard arrows handled by this module.
-  import static bool enableKeyboadArrows(bool isKeyboardArrowsEnabled = 1);
+  import static bool enableKeyboardArrows(bool isKeyboardArrowsEnabled = 1);
 };

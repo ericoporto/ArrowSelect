@@ -1,6 +1,6 @@
 //Arrow Select Module Header// MIT License
 //
-// Copyright (c) 2019 Érico Vieira Porto
+// Copyright (c) 2019 ï¿½rico Vieira Porto
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -98,5 +98,5 @@ struct ArrowSelect
   import static bool areKeyboardArrowsEnable();
 
   /// Enables or disables (by passing `false`) regular keyboard arrows handled by this module.
-  import static bool enableKeyboadArrows(bool isKeyboardArrowsEnabled = 1);
+  import static bool enableKeyboardArrows(bool isKeyboardArrowsEnabled = 1);
 };

@@ -161,3 +161,12 @@ public static bool PointInTriangle(Point p, Point p0, Point p1, Point p2)
             (s >= 0 && s + t <= A);
 }
 ```
+
+
+## Author
+
+Made by Érico Vieira Porto
+
+## License
+
+Distributed under MIT license. See [LICENSE](https://github.com/ericoporto/arrowselect/blob/master/LICENSE) for more information.

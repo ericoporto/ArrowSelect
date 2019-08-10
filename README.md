@@ -84,7 +84,13 @@ managed struct Interactive{
 
 ### `bool ArrowSelect.moveCursorDirection(CharacterDirection dir)`
 
-Moves cursor to the interactive available at a direction. Returns true if the
+Moves cursor to the nearest interactive available at a direction. Returns true if the
+cursor is successfully moved.
+
+
+### `Point* ArrowSelect.getNearestInteractivePointAtDirection(CharacterDirection dir)`
+
+Get point of the nearest interactive available at a direction. Returns true if the
 cursor is successfully moved.
 
 ### `bool ArrowSelect.areKeyboardArrowsEnable()`

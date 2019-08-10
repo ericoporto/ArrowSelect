@@ -90,6 +90,9 @@ struct ArrowSelect
 
   /// Returns a list of which triangles are inside a triangle defined by three points.
   import static Interactive*[] whichInteractivesInTriangle(Interactive* Interactives[], Point* a, Point* b, Point* c);
+  
+    /// Get point to the interactive available at a direction. Returns true if the cursor is successfully moved.
+  import static Point* getNearestInteractivePointAtDirection(CharacterDirection dir);
 
   /// Moves cursor to the interactive available at a direction. Returns true if the cursor is successfully moved.
   import static bool moveCursorDirection(CharacterDirection dir);

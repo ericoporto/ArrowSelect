@@ -96,7 +96,6 @@ cursor is successfully moved.
 ### `bool ArrowSelect.areKeyboardArrowsEnable()`
 
 Returns true if regular keyboard arrows are enabled for cursor movements.
-import static ;
 
 ### `bool ArrowSelect.enableKeyboardArrows(bool isKeyboardArrowsEnabled = 1)`
 

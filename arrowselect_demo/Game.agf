@@ -1631,7 +1631,7 @@
                 <Visible>True</Visible>
               </GUILabel>
               <GUITextBox>
-                <OnActivate>txtNewSaveName_OnActivate</OnActivate>
+                <OnActivate />
                 <TextColor>19248</TextColor>
                 <Font>0</Font>
                 <ShowBorder>True</ShowBorder>
@@ -4330,7 +4330,7 @@ return
                 <Name>ArrowSelect</Name>
                 <Description>Select things using arrows in point and click games.</Description>
                 <Author>eri0o</Author>
-                <Version>0.2.0</Version>
+                <Version>0.3.0</Version>
                 <Key>989537072</Key>
                 <IsHeader>False</IsHeader>
               </Script>

@@ -46,6 +46,11 @@
 #define MAX_HOTSPOTS_PER_ROOM 49
 #define MAX_LABELS 70
 
+enum InteractiveFilter{
+  eI_FilterOut=0, 
+  eI_FilterIn=1
+};
+
 enum InteractiveType{
   eInteractiveTypeNothing = eLocationNothing,
   eInteractiveTypeObject = eLocationObject,
@@ -72,13 +77,22 @@ managed struct Interactive{
 };
 
 struct ArrowSelect
-{
+{  
+  /// Moves cursor to the interactive available at a direction. Returns true if the cursor is successfully moved.
+  import static bool moveCursorDirection(CharacterDirection dir);
+  
+  /// Get point to the interactive available at a direction. Returns true if the cursor is successfully moved.
+  import static Point* getNearestInteractivePointAtDirection(CharacterDirection dir);
+  
+  /// Filters or not a interactive type for cursor moveCursorDirection and getNearestInteractivePointAtDirection.
+  import static void filterInteractiveType(InteractiveType interactiveType, InteractiveFilter filter=0);
+  
   /// Returns a Triangle instance with one point at the origin points and the two other points separated by spreadAngle, and at the direction angle
   import static Triangle* triangleFromOriginAngleAndDirection(Point* origin, int direction, int spreadAngle=90);
 
   /// Retuns the distance between an interactive and a point.
   import static int distanceInteractivePoint(Interactive* s, Point* a);
-
+  
   /// Returns the closest interactive to a point.
   import static Interactive* closestValidInteractivePoint(Interactive* Interactives[], Point* a);
 
@@ -90,12 +104,6 @@ struct ArrowSelect
 
   /// Returns a list of which triangles are inside a triangle defined by three points.
   import static Interactive*[] whichInteractivesInTriangle(Interactive* Interactives[], Point* a, Point* b, Point* c);
-  
-    /// Get point to the interactive available at a direction. Returns true if the cursor is successfully moved.
-  import static Point* getNearestInteractivePointAtDirection(CharacterDirection dir);
-
-  /// Moves cursor to the interactive available at a direction. Returns true if the cursor is successfully moved.
-  import static bool moveCursorDirection(CharacterDirection dir);
 
   /// Returns true if regular keyboard arrows are enabled for cursor movements.
   import static bool areKeyboardArrowsEnable();

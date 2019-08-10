@@ -4330,7 +4330,7 @@ return
                 <Name>ArrowSelect</Name>
                 <Description>Select things using arrows in point and click games.</Description>
                 <Author>eri0o</Author>
-                <Version>0.1.4</Version>
+                <Version>0.2.0</Version>
                 <Key>989537072</Key>
                 <IsHeader>False</IsHeader>
               </Script>

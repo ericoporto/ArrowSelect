@@ -93,48 +93,64 @@ cursor is successfully moved.
 Get point of the nearest interactive available at a direction. Returns true if the
 cursor is successfully moved.
 
+
+### `void filterInteractiveType(InteractiveType interactiveType, InteractiveFilter filter=0)`
+
+Filters or not a interactive type for cursor moveCursorDirection and getNearestInteractivePointAtDirection.
+
+
 ### `bool ArrowSelect.areKeyboardArrowsEnable()`
 
 Returns true if regular keyboard arrows are enabled for cursor movements.
+
 
 ### `bool ArrowSelect.enableKeyboardArrows(bool isKeyboardArrowsEnabled = 1)`
 
 Enables or disables (by passing `false`) regular keyboard arrows handled by this
 module.
 
+
 ### `Triangle* ArrowSelect.triangleFromOriginAngleAndDirection(Point* origin, int direction, int spreadAngle=90)`
 
 Returns a Triangle instance with one point at the origin points and the two
 other points separated by spreadAngle, and at the direction angle
 
+
 ### `int ArrowSelect.distanceInteractivePoint(Interactive* s, Point* a)`
 
 Retuns the distance between an interactive and a point.
+
 
 ### `Interactive* ArrowSelect.closestValidInteractivePoint(Interactive* Interactives[], Point* a)`
 
 Returns the closest interactive to a point.
 
+
 ### `Interactive*[] ArrowSelect.getInteractives()`
 
 Get a list of all interactives on screen.
+
 
 ### `bool ArrowSelect.isInteractiveInsideTriangle(Interactive* p, Point* a, Point* b, Point* c)`
 
 Returns true if an interactive is inside a triangle defined by three points.
 
+
 ### `Interactive*[] ArrowSelect.whichInteractivesInTriangle(Interactive* Interactives[], Point* a, Point* b, Point* c)`
 
 Returns a list of which triangles are inside a triangle defined by three points.
+
 
 ## Implementation details
 
 This is just the detail on how things works on this module
 
+
 ### Problem
 
 By using keyboard arrow keys or joystick directional hat, select between
 clickable things on screen.
+
 
 ### Solution
 
@@ -147,6 +163,7 @@ When the player press an arrow button do as follow:
 
 3 .calculate distance from cursor to things there, and get what has the smaller
   distance
+
 
 ### Solution details
 
@@ -176,6 +193,7 @@ public static bool PointInTriangle(Point p, Point p0, Point p1, Point p2)
 ## Author
 
 Made by Érico Vieira Porto
+
 
 ## License
 

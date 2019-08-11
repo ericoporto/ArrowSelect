@@ -73,6 +73,7 @@ managed struct Interactive{
   int x;
   int y;
   int ID;
+  int owningGUI_ID;
   InteractiveType type;
 };
 

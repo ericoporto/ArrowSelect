@@ -1,6 +1,6 @@
 //Arrow Select Module Header// MIT License
 //
-// Copyright (c) 2019 Érico Vieira Porto
+// Copyright (c) 2020 Érico Vieira Porto
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -82,7 +82,10 @@ struct ArrowSelect
   /// Moves cursor to the interactive available at a direction. Returns true if the cursor is successfully moved.
   import static bool moveCursorDirection(CharacterDirection dir);
   
-  /// Get point to the interactive available at a direction. Returns true if the cursor is successfully moved.
+    /// Get interactive available at a direction. Returns null if there is none.
+  import static Interactive* getNearestInteractiveAtDirection(CharacterDirection dir);
+    
+  /// Get point to the interactive available at a direction. Returns null if there is none.
   import static Point* getNearestInteractivePointAtDirection(CharacterDirection dir);
   
   /// Filters or not a interactive type for cursor moveCursorDirection and getNearestInteractivePointAtDirection.
@@ -111,4 +114,14 @@ struct ArrowSelect
 
   /// Enables or disables (by passing `false`) regular keyboard arrows handled by this module.
   import static bool enableKeyboardArrows(bool isKeyboardArrowsEnabled = 1);
+  
+  /// If true, Mouse position is used as origin in getNearestInteractiveAtDirection and related functions. Default is true.
+  import static attribute bool UseMouseAsOrigin;
+  import static bool get_UseMouseAsOrigin(); // $AUTOCOMPLETEIGNORE$
+  import static void set_UseMouseAsOrigin(bool value); // $AUTOCOMPLETEIGNORE$
+  
+  /// Point used as origin if UseMouseAsOrigin is false.
+  import static attribute Point* Origin;
+  import static Point* get_Origin(); // $AUTOCOMPLETEIGNORE$
+  import static void set_Origin(Point* value); // $AUTOCOMPLETEIGNORE$
 };

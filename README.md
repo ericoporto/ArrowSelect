@@ -88,10 +88,14 @@ Moves cursor to the nearest interactive available at a direction. Returns true i
 cursor is successfully moved.
 
 
+### `Interactive* ArrowSelect.getNearestInteractivePointAtDirection(CharacterDirection dir)`
+
+Get the nearest interactive available at a direction. Returns null if there is none.
+
+
 ### `Point* ArrowSelect.getNearestInteractivePointAtDirection(CharacterDirection dir)`
 
-Get point of the nearest interactive available at a direction. Returns true if the
-cursor is successfully moved.
+Get point of the nearest interactive available at a direction. Returns null if there is none.
 
 
 ### `void filterInteractiveType(InteractiveType interactiveType, InteractiveFilter filter=0)`
@@ -108,6 +112,15 @@ Returns true if regular keyboard arrows are enabled for cursor movements.
 
 Enables or disables (by passing `false`) regular keyboard arrows handled by this
 module.
+
+### `bool attribute ArrowSelect.UseMouseAsOrigin`
+
+If true, Mouse position is used as origin in getNearestInteractiveAtDirection and related functions. Default is true.
+
+
+### `Point* attribute ArrowSelect.Origin`
+
+Point used as origin if UseMouseAsOrigin is false.
 
 
 ### `Triangle* ArrowSelect.triangleFromOriginAngleAndDirection(Point* origin, int direction, int spreadAngle=90)`

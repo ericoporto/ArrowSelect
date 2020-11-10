@@ -1,4 +1,4 @@
-[size=14pt][b]ArrowSelect[/b][/size] [color=gray][b] version 0.5.0 [/b][/color]
+[size=14pt][b]ArrowSelect[/b][/size] [color=gray][b] version 0.6.0 [/b][/color]
 
 Select things using arrows keys or joystick hat, module for in point and click games made with Adventure Game Studio. 
 
@@ -6,7 +6,7 @@ Requires AGS 3.5.0.14
 
 [img]https://raw.githubusercontent.com/ericoporto/arrowselect/master/arrowselect_demo.gif[/img]
 
-[url=https://github.com/ericoporto/arrowselect/releases/download/0.5.0/arrowselect.scm]Get Latest Release [b]arrowselect.scm[/b][/url] | [url=https://github.com/ericoporto/arrowselect]GitHub Repo[/url] | [url=https://github.com/ericoporto/arrowselect/releases/download/0.5.0/arrowselect_demo_windows.zip]Demo Windows[/url] | [url=https://github.com/ericoporto/arrowselect/releases/download/0.5.0/arrowselect_demo_linux.tar.xz]Demo Linux[/url]
+[url=https://github.com/ericoporto/arrowselect/releases/download/0.6.0/arrowselect.scm]Get Latest Release [b]arrowselect.scm[/b][/url] | [url=https://github.com/ericoporto/arrowselect]GitHub Repo[/url] | [url=https://github.com/ericoporto/arrowselect/releases/download/0.6.0/arrowselect_demo_windows.zip]Demo Windows[/url] | [url=https://github.com/ericoporto/arrowselect/releases/download/0.6.0/arrowselect_demo_linux.tar.xz]Demo Linux[/url]
 
 [i]Note:[/i] This module doesn't deal with printing things on screen, but if you want to do this, you may find it provides some helpful functions with the Interactives abstraction.
 
@@ -75,8 +75,17 @@ managed struct Interactive{
 [b][font=courier]bool ArrowSelect.moveCursorDirection(CharacterDirection dir)[/font][/b]
 Moves cursor to the interactive available at a direction. Returns true if the cursor is successfully moved.
 
+[b][font=courier]Interactive* ArrowSelect.getNearestInteractivePointAtDirection(CharacterDirection dir)[/font][/b]
+Get the nearest interactive available at a direction. Returns null if there is none.
+
 [b][font=courier]Point* ArrowSelect.getNearestInteractivePointAtDirection(CharacterDirection dir)[/font][/b]
-Get point of the nearest interactive available at a direction. Returns true if the cursor is successfully moved.
+Get point of the nearest interactive available at a direction. Returns null if there is none.
+
+[b][font=courier]bool attribute ArrowSelect.UseMouseAsOrigin[/font][/b]
+If true, Mouse position is used as origin in getNearestInteractiveAtDirection and related functions. Default is true.
+
+[b][font=courier]Point* attribute ArrowSelect.Origin[/font][/b]
+Point used as origin if UseMouseAsOrigin is false.
 
 [b][font=courier]void filterInteractiveType(InteractiveType interactiveType, InteractiveFilter filter=0)[/font][/b]
 Filters or not a interactive type for cursor moveCursorDirection and getNearestInteractivePointAtDirection.

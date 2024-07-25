@@ -1,6 +1,6 @@
 //Arrow Select Module Header// MIT License
 //
-// Copyright (c) 2020 Érico Vieira Porto
+// Copyright (c) 2024 Ã‰rico Vieira Porto
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal

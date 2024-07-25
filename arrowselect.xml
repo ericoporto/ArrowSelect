@@ -1,8 +1,0 @@
-<?xml version="1.0"?>
-<AGSModule>
-  <Name>arrowselect</Name>                      <!-- set the module name -->
-  <Description>Select things using arrows in point and click games.</Description> <!-- set the module description -->
-  <Author>eri0o</Author>                <!-- set the module author -->
-  <Version>0.6.0</Version>             <!-- set the module version -->
-  <Key>989537072</Key>                  <!-- set the module unique key -->
-</AGSModule>

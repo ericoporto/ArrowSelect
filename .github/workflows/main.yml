@@ -11,46 +11,46 @@ jobs:
 
       - name: gets ags-toolbox
         run: |
-          curl -Lo atbx.exe https://github.com/ericoporto/agstoolbox/releases/download/0.4.9/atbx.exe
+          curl -Lo atbx.exe https://github.com/ericoporto/agstoolbox/releases/download/0.5.1/atbx.exe
           echo "${{github.workspace}}" | Out-File -FilePath $env:GITHUB_PATH -Encoding utf8 -Append
 
       - name: Install AGS
         run: |
-          atbx install editor -q fancy_demo/
+          atbx install editor -q arrowselect_demo/
 
       - name: Build game
         run: |
-          atbx build fancy_demo/
+          atbx build arrowselect_demo/
 
       - name: Export module
         run: |
-          atbx export script fancy_demo/ fancy .
+          atbx export script arrowselect_demo/ arrowselect .
 
       - name: Zip Game Project
         run: |
-          Remove-Item -Recurse -Force fancy_demo/Compiled/Data
-          Remove-Item -Force fancy_demo/Game.agf.user
-          Compress-Archive -Path fancy_demo/* -Destination fancy_demo_windows.zip
+          Remove-Item -Recurse -Force arrowselect_demo/Compiled/Data
+          Remove-Item -Force arrowselect_demo/Game.agf.user
+          Compress-Archive -Path arrowselect_demo/* -Destination arrowselect_demo_windows.zip
 
       - name: Upload Game and Project Artifact
         uses: actions/upload-artifact@v4
         with:
-          name: fancy_demo
+          name: arrowselect_demo
           path: |
-            fancy_demo_windows.zip
+            arrowselect_demo_windows.zip
 
       - name: Upload Module Artifact
         uses: actions/upload-artifact@v4
         with:
-          name: fancy_module
+          name: arrowselect_module
           path: |
-            fancy.scm
+            arrowselect.scm
 
       - name: Create release and upload assets
         if: startsWith(github.ref, 'refs/tags/v')
         uses: ncipollo/release-action@v1
         with:
-          artifacts: fancy.scm,fancy_demo_windows.zip
+          artifacts: arrowselect.scm,arrowselect_demo_windows.zip
           allowUpdates: true
           omitBodyDuringUpdate: true
           token: ${{ secrets.GITHUB_TOKEN }}
